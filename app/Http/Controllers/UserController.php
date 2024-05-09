@@ -15,7 +15,7 @@ class UserController extends Controller
         // Déplacer la récupération des universités ici
         $universities = University::all(); // Récupérer toutes les universités depuis la base de données
 
-        if (auth()->check() && !auth()->user()->getAuthIdentifierName('mel')) {
+        if (auth()->check() && auth()->user()->name === "mel") {
             // Passez les données des universités à la vue
             return view('dashboard');
         } else {
